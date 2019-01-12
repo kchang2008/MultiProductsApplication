@@ -1,0 +1,149 @@
+apply plugin: 'com.android.application'
+
+android {
+
+
+    compileSdkVersion 27  //
+    buildToolsVersion '27.0.3'
+    useLibrary 'org.apache.http.legacy'
+
+    //加载资源
+    Properties properties = new Properties()
+    InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream();
+    properties.load(inputStream)
+
+    signingConfigs {
+        AReleaseSign {
+            //读取文件
+            def storeAFile = properties.getProperty('storeAFile')
+
+            //读取字段
+            def storeAPassword = properties.getProperty('storeAPassword')
+            def keyAAlias = properties.getProperty('keyAAlias');
+            def keyAPassword = properties.getProperty('keyAPassword')
+
+            if (storeAFile != null) {
+                storeFile file(storeAFile)
+                storePassword storeAPassword
+                keyAlias keyAAlias
+                keyPassword keyAPassword
+            }
+        }
+
+        BReleaseSign {
+            //读取文件
+            def storeBFile = properties.getProperty('storeBFile')
+
+            //读取字段
+            def storeBPassword = properties.getProperty('storeBPassword')
+            def keyBAlias = properties.getProperty('keyBAlias');
+            def keyBPassword = properties.getProperty('keyBPassword')
+
+            if (storeBFile != null) {
+                storeFile file(storeBFile)
+                storePassword storeBPassword
+                keyAlias keyBAlias
+                keyPassword keyBPassword
+            }
+        }
+    }
+
+//产品或者说渠道配置
+    productFlavors {
+
+
+        ProductA {
+            applicationId "com.test.product.a"
+            versionCode 1
+            versionName "1.0"
+
+            signingConfig signingConfigs.AReleaseSign
+
+            flavorDimensions "versionCode"
+
+            manifestPlaceholders = [
+                    JPUSH_KEY : "dkfdfkflfkfkdsfdsfkd2ewq",
+            ]
+        }
+
+        ProductB {
+            applicationId "com.test.product.b"
+            versionCode 12
+            versionName "3.0"
+
+            signingConfig signingConfigs.BReleaseSign
+            flavorDimensions "versionCode"
+
+            manifestPlaceholders = [
+                    JPUSH_KEY : "231232132332323223232221",
+            ]
+        }
+
+    }
+
+    //保留共同部分在默认配置，不同的部分单独配置
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27   //28
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //不同环境分别配置不同的网络请求
+    buildTypes {
+        //这是开发人员内测的开发环境
+        debug {
+            buildConfigField "String", "REQUEST_URL_HEADER", '"https://dapp.test.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        //test名称不能使用，我换成了tapp
+        tapp {
+            buildConfigField "String", "REQUEST_URL_HEADER", '"https://tapp.test.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        //这是准生产环境
+        zapp {
+            buildConfigField "String", "REQUEST_URL_HEADER", '"https://zapp.test.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        //这是正式发布环境
+        release {
+            buildConfigField "String", "REQUEST_URL_HEADER", '"https://rapp.test.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    //为主工程每一个产品配置对应的依赖库
+    releaseImplementation project(':productlibrary')
+    releaseImplementation project(':productlibrary')
+
+    debugImplementation project(':productlibrary')
+    debugImplementation project(':productlibrary')
+
+    zappImplementation project(':productlibrary')
+    zappImplementation project(':productlibrary')
+
+    tappImplementation project(':productlibrary')
+    tappImplementation project(':productlibrary')
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:27.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:design:27.0.0'
+    implementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+}
