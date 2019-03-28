@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"            
+            android:gravity="center"
+            android:background="@drawable/bg_anniu_blank"
+            android:textSize="@dimen/text_common"
+            android:textColor="@color/text_a"            
+            android:text="@string/please_select_picture_source" />
+
+        <Button
+            android:id="@+id/btn_take_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_anniu_blank"
+            android:text="@string/take_a_photograph"
+            android:textSize="@dimen/text_common"            
+            android:textColor="@color/text_blue"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_pick_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_anniu_blank"
+            android:text="@string/choose_from_album"
+            android:textSize="@dimen/text_common"            
+            android:textColor="@color/text_blue"            
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_anniu_blank"
+            android:textSize="16sp"            
+            android:textColor="@color/text_blue"            
+            android:text="@string/cancel"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

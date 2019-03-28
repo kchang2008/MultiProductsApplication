@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html ng-app="ionic">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../Public/lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="../Public/js/cordova.js"></script>
+    <script src="./js/init.js"></script>
+    <link rel="stylesheet" href="../Public/lib/ionic/css/ionic.min.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
+    <link rel="stylesheet" href="../Public/css/swiper.min.css">
+    <title></title>
+    <style>
+        body {
+            background: none;
+            background: transparent;
+        }
+        .flex {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            -o-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            -ms-align-items: center;
+            -o-align-items: center;
+            align-items: center;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+        .alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 18rem;
+            height: 24rem;
+            margin-top: -13rem;
+            margin-left: -9rem;
+        }
+        .swiper-container{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 1rem;
+            background-color: #fff;
+            opacity: 1;
+        }
+        /*.content-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 1rem;
+            background-color: #fff;
+            opacity: 1;
+        }*/
+
+        .top-img,.top-img img {
+            display: block;
+            width: 100%;
+        }
+        .alert .content-wrap p:first-of-type {
+            height: 2rem;
+            text-align: center;
+            color: #070707;
+
+        }
+        .alert .content-wrap p:first-of-type span{
+            display: inline-block;
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+        }
+        .alert .content-wrap p:first-of-type span:first-child {
+            font-size: 1.6rem;
+        }
+        .alert .content-wrap p:last-of-type{
+            margin: 0.5rem auto 1.8rem;
+            padding: 0.1rem 0;
+        }
+        .alert .content-wrap p:last-of-type label{
+            display: inline-block;
+            padding: 0 1.5rem;
+            font-size: 0.9rem;
+            color: #e60012;
+            border: 1px solid #ff2645;
+            white-space: nowrap;
+        }
+        .alert .content-wrap p:last-of-type span:first-child {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .alert .content-wrap p:last-of-type span:last-child {
+            position: relative;
+            top: -0.15rem;
+        }
+
+        .alert-btn {
+            width: 15.6rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            background-color: #ff2645;
+            background-image: -webkit-gradient(linear, left, right, from(#ffae00), to(#ff2645));
+            background-image: -webkit-linear-gradient(left, #ffae00, #ff2645);
+            background-image: linear-gradient(left, #ffae00, #ff2645);
+            border-radius: 2rem;
+        }
+        .swiper-pagination{
+            display: none;
+            line-height:100%;
+            text-align:center;
+            vertical-align: middle;
+        }
+        .swiper-pagination span{
+            margin:0 5px;
+            vertical-align: middle;
+        }
+        .swiper-pagination-bullet{
+            width:6px;
+            height:6px;
+            background:#fff;
+            opacity:1;
+        }
+        .swiper-pagination-bullet-active{
+            width:8px;
+            height:8px;
+            margin-top:0;
+            background:#007aff;
+        }
+        .close-btn {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 2rem;
+            height: 2rem;
+            margin-top: 13.5rem;
+            margin-left: -1rem;
+            -webkit-transition: all 0.5s ease-in-out 0.1s;
+            transition: all 0.5s ease-in-out 0.1s;
+        }
+        .close-btn img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="alert">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--<div class="swiper-slide content-wrap">
+                <div class="top-img"><img src="img/gold_10.png"></div>
+                <p></p>
+                <p class="flex"><label><span>23232</span><span>元</span></label></p>
+                <div class="alert-btn">立即购买</div>
+            </div>-->
+            <!--<div class="swiper-slide content-wrap">
+                <div class="top-img"><img src="img/gold_10.png"></div>
+                <p></p>
+                <p><span></span><span>元</span></p>
+                <div class="alert-btn">立即购买</div>
+            </div>-->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="close-btn"><img src="img/gold_close_1.png"></div>
+</div>
+<script src="../Public/js/jquery-1.11.3.min.js"></script>
+<script src="../Public/js/jquery.mobile.custom.min.js"></script>
+<script src="../Public/js/jquery.xml2json.js"></script>
+<script src="../Public/js/swiper.jquery.min.js"></script>
+<script src="../Public/js/common.js"></script>
+<script src="../Public/js/number-handle.js"></script>
+<script src="../Public/js/addmediacss.js"></script>
+<script src="./js/config.js"></script>
+<script>
+    var customerId = userBaseMsg.customerId;
+    var hasAlertStr = localStorage.getItem("hasAlertStr") || "";//已经弹窗过
+    var isLoop = false;
+    function dismiss() {
+        navigator.myPlugin.dismissToPreviousFunc([], null, null);
+    }
+    function showSwiper(loopstatus){
+        var swiper = new Swiper(".swiper-container",{
+            direction:"horizontal",
+            loop:loopstatus,
+            autoplay:2000,
+            pagination:'.swiper-pagination',
+            resistanceRatio : 0,
+            autoplayDisableOnInteraction : false
+        });
+    }
+
+    $(function() {
+        var swiperCnt = $(".alert .swiper-wrapper");
+        var zxAlert = {
+            "customerId" :customerId,
+            "hasAlert" : "1"
+        };
+        var alertList = parseobj(localStorage.getItem("zxAlertList")) || [];
+        var swiperHtml = "";
+        for(var i = 0; i < alertList.length; i++){
+            var thisGood = alertList[i];
+            var alertBg = "P01" == thisGood.subProductTypeId ?"img/gold_10.png":"img/gold_alert_jh.png";
+            var zxDiscountPrice = thisGood.discountPrice;
+            var num = thisGood.mktProductNumber;
+            var tempVal,tempUnit;
+            if (Math.floor(numHandle.aDiv(num, 10000)) > 0) {
+                tempVal = numHandle.aDiv(num, 10000);
+                tempUnit = "万个";
+            } else {
+                tempVal = num;
+                tempUnit = "个";
+            }
+            swiperHtml += '<div class="swiper-slide content-wrap">'
+                    +'<div class="top-img"><img src="'+alertBg+'"></div>'
+                    +'<p class="flex"><span>'+tempVal+'</span><span>'+tempUnit+'金豆仅卖</span></p>'
+                    +'<p class="flex"><label><span>'+zxDiscountPrice+'</span><span>元</span></label></p>'
+                    +'<div class="alert-btn" data-price=' + JSON.stringify(thisGood) +'>立即购买</div>'
+                    +'</div>';
+            hasAlertStr += ","+thisGood.mktProductId;
+        }
+        localStorage.setItem("hasAlertStr",hasAlertStr);
+        swiperCnt.html(swiperHtml);
+        if(alertList.length > 1){
+            $(".swiper-pagination").show();
+            isLoop = true;
+        }
+        showSwiper(isLoop);
+        swiperCnt.on("tap",".alert-btn",function(){
+            var _this = $(this);
+            localStorage.setItem("thisPayObj",JSON.stringify(_COMMON.jsonP(_this.data("price"))));
+            localStorage.setItem("payZX","1");
+            dismiss();
+        });
+    });
+    document.addEventListener("deviceready", function () {
+        $(".close-btn").on("tap", function(){
+            navigator.myPlugin.doNetworkActionWithoutLoadingFunc(
+                    [{
+                        "application": "CreditCardApplyFor.Req",
+                        "cumtomerId": customerId,
+                        "bankName": "关闭弹窗",
+                        "clickStatus": "goldAlert"
+                    }],
+                    null, null);
+            dismiss();
+        });
+    }, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/white_bg"
+    >
+    
+    <TextView  android:id="@+id/share_tv_title"
+        	   android:layout_width="wrap_content"
+        	   android:layout_height="wrap_content"
+        	   android:text="@string/share_desc"
+        	   android:layout_marginTop="130dp"
+        	   android:layout_centerHorizontal="true"
+        	   android:textColor="@color/black"
+        />
+    <TextView  android:id="@+id/share_tv_center"
+        	   android:layout_width="0dp"
+        	   android:layout_height="0dp"
+        	   android:layout_centerInParent="true"
+        />
+    
+    <LinearLayout 
+        android:id="@+id/share_linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/share_tv_title"
+        android:layout_marginTop="50dp"
+        >
+        
+    <RelativeLayout 
+        android:id="@+id/share_rela_weixin"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        >
+    
+    <ImageView  android:id="@+id/share_iv_weixin"
+        		android:layout_width="80dp"
+        		android:layout_height="80dp"
+        		android:contentDescription="@string/about_us"
+        		android:background="@drawable/share_weixin"
+        		android:layout_marginRight="20dp"
+        		 android:layout_centerHorizontal="true"
+        />
+    <TextView android:id="@+id/share_tv_weixin"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:text="@string/share_weixin_friend"
+        	  android:layout_below="@+id/share_iv_weixin"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_marginTop="8dp"
+        	  android:textColor="@color/black"
+        />
+    
+    </RelativeLayout>  
+        
+    <RelativeLayout 
+        android:id="@+id/share_rela_friend"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        >  
+    
+     <ImageView  android:id="@+id/share_iv_friend"
+        		 android:layout_width="80dp"
+        		 android:layout_height="80dp"
+        		 android:contentDescription="@string/about_us"
+        		 android:background="@drawable/share_friend"
+        		 android:layout_marginLeft="20dp"
+        		 android:layout_centerHorizontal="true"
+        />
+    <TextView android:id="@+id/share_tv_friend"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:text="@string/share_weixin_quan"
+        	  android:layout_below="@+id/share_iv_friend"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_marginTop="8dp"
+        	  android:textColor="@color/black"
+        />
+         
+     
+    </RelativeLayout>   
+     
+    </LinearLayout>  
+  
+    
+    
+<LinearLayout 
+        android:id="@+id/share_linear_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/share_linear_1"
+        android:layout_marginTop="10dp"
+        >
+    
+  <RelativeLayout 
+        android:id="@+id/share_rela_QQfriend"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        >  
+     <ImageView  android:id="@+id/share_iv_QQfriend"
+        		 android:layout_width="80dp"
+        		 android:layout_height="80dp"
+        		 android:contentDescription="@string/about_us"
+        		 android:background="@drawable/share_qq"
+        		 android:layout_centerHorizontal="true"
+        />
+    <TextView android:id="@+id/share_tv_QQfriend"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:text="@string/share_qq_friend"
+        	  android:layout_below="@+id/share_iv_QQfriend"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_marginTop="8dp"
+        	  android:textColor="@color/black"
+        />     
+  </RelativeLayout>
+  
+ <RelativeLayout 
+        android:id="@+id/share_rela_QQzoom"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        >    
+      <ImageView  android:id="@+id/share_iv_QQzoom"
+        		  android:layout_width="80dp"
+        		  android:layout_height="80dp"
+        		  android:contentDescription="@string/about_us"
+        		  android:background="@drawable/share_qzone"
+        		  android:layout_centerHorizontal="true"
+        />
+    <TextView android:id="@+id/share_tv_QQzoom"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:text="@string/share_qq_qqzone"
+        	  android:layout_below="@+id/share_iv_QQzoom"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_marginTop="8dp"
+              android:textColor="@color/black"
+        />        
+ </RelativeLayout>       
+</LinearLayout>  
+
+<ImageView  android:id="@+id/share_iv_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/close_share"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/share_linear_2"
+            android:layout_marginTop="40dp"
+    
+    />
+
+</RelativeLayout>

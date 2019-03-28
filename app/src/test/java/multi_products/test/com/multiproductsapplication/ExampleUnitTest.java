@@ -1,4 +1,4 @@
-package multi_products.test.com.multiproductsapplication;
+package com.multiproductsapplication;
 
 import org.junit.Test;
 

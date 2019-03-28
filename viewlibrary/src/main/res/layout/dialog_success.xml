@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/success_bg2"
+    android:gravity="center" >
+
+    <ImageView
+        android:id="@+id/ds_iv_duigou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/dialog_success"
+        android:contentDescription="@string/about_us" />
+
+    <TextView
+        android:id="@+id/ds_tv_Prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ds_iv_duigou"
+        android:layout_alignRight="@+id/ds_iv_duigou"
+        android:layout_below="@+id/ds_iv_duigou"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="修改成功"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

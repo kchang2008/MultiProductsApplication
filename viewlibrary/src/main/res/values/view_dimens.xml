@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_18">18dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+
+    <dimen name="text_large">18dp</dimen>
+    <dimen name="text_common">14dp</dimen>
+
+    <dimen name="layout_height">45dp</dimen>
+    <dimen name="layout_wight">70dp</dimen>
+    <dimen name="imag_back">20dp</dimen>
+    <dimen name="imag_right">20dp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="back_marginLeft">3dp</dimen>
+    <dimen name="right_marginRight">3dp</dimen>
+
+    <dimen name="line_height">45dp</dimen>
+</resources>

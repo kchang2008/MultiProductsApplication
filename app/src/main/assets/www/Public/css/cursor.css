@@ -1,0 +1,37 @@
+.preText {
+    visibility: hidden;
+    z-index: -10; 
+    position: fixed;
+    top: 0; 
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+.cursor {
+    display: inline-block !important;
+    width: 1px !important;
+    height: 70%;
+    position: absolute !important;
+    top: 15%;
+    left: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #3ca0ff;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-animation: twinkling 0.8s ease-out infinite;
+    animation: twinkling 0.8s ease-out infinite;
+    z-index: 300;
+}
+@-webkit-keyframes twinkling{
+    0%{ opacity:0;}
+    50%{ opacity:1;}
+    70%{ opacity:1;}
+    100%{ opacity:0;}
+}
+@keyframes twinkling{
+    0%{ opacity:0;}
+    50%{ opacity:1;}
+    70%{ opacity:1;}
+    100%{ opacity:0;}
+}

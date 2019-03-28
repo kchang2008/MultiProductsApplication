@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard android:keyWidth="10.0%p"
+    android:keyHeight="7.5%p"
+    xmlns:android="http://schemas.android.com/apk/res/android"> <!--     android:horizontalGap="1.2%p" android:verticalGap="1.55%p" -->
+        <Row>
+        <Key  android:codes="49" android:keyEdgeFlags="left" android:keyLabel="1" />                                       
+		<Key android:codes="50" android:keyLabel="2" />
+        <Key android:codes="51" android:keyLabel="3" />
+        <Key android:codes="52" android:keyLabel="4" />
+        <Key android:codes="53" android:keyLabel="5" />
+        <Key android:codes="54" android:keyLabel="6" />
+ 	    <Key android:codes="55" android:keyLabel="7" />
+        <Key android:codes="56" android:keyLabel="8" />
+        <Key android:codes="57" android:keyLabel="9" />       
+        <Key android:codes="48" android:keyEdgeFlags="right" android:keyLabel="0" />                                        
+    </Row>
+    
+    
+    <Row> 
+          <Key android:codes="10000" android:keyLabel="" android:keyWidth="5.0%p"/>                                     <!-- ! -->             
+        <Key android:keyOutputText="@string/char_123" android:keyLabel="@string/char_123" android:horizontalGap="0.0%p"  android:keyEdgeFlags="left"/><!-- { -->
+        <Key android:keyOutputText="@string/char_125" android:keyLabel="@string/char_125" /><!-- } -->
+        <Key android:keyOutputText="@string/char_91" android:keyLabel="@string/char_91" /><!-- [ -->
+        <Key android:keyOutputText="@string/char_93" android:keyLabel="@string/char_93" /><!-- ] -->
+        <Key android:keyOutputText="@string/char_92" android:keyLabel="@string/char_92" /><!-- \ -->
+        <Key android:keyOutputText="@string/char_124" android:keyLabel="@string/char_124" /><!-- | -->
+        <Key android:keyOutputText="@string/char_58" android:keyLabel="@string/char_58" /><!-- : -->
+        <Key android:keyOutputText="@string/char_59" android:keyLabel="@string/char_59" /><!-- ; -->
+        <Key android:keyOutputText="@string/char_39"  android:keyLabel="@string/char_39" android:keyEdgeFlags="right"   /><!-- '  --> 
+        <Key android:codes="10000" android:keyLabel="" android:keyWidth="5.0%p"/> 
+    </Row>
+
+    <Row>
+        <Key android:codes="0" android:keyEdgeFlags="left"  android:keyWidth="15%p" android:keyLabel="换"  />     <!-- abc切换 -->
+     <Key android:keyOutputText="@string/strsign2" android:keyLabel="@string/strsign2" /><!-- " -->
+        <Key android:keyOutputText="@string/char_44" android:keyLabel="@string/char_44" /><!-- , -->
+        <Key android:keyOutputText="@string/char_46" android:keyLabel="@string/char_46" /><!-- . -->
+        <Key android:keyOutputText="@string/char_60" android:keyLabel="@string/char_60" /><!-- < -->
+        <Key android:keyOutputText="@string/char_62" android:keyLabel="@string/char_62" /><!-- > -->
+        <Key android:keyOutputText="@string/char_47" android:keyLabel="@string/char_47" /><!-- / -->
+        <Key android:keyOutputText="@string/char_63"   android:keyLabel="@string/char_63" />     <!-- ? -->
+        <Key android:keyWidth="15%p" android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"  />                           
+    </Row>
+
+  
+    <Row android:rowEdgeFlags="bottom">
+        <Key  android:keyWidth="25.000004%p" android:codes="456456"  android:keyLabel="@string/char_abc" android:keyEdgeFlags="left" />
+		<Key android:keyWidth="50.00000%p" android:codes="32"/>
+        <Key android:keyWidth="25.000004%p" android:codes="-4"
+            android:keyEdgeFlags="right" android:keyLabel="完成" />  <!--   -->
+    </Row>
+</Keyboard>  

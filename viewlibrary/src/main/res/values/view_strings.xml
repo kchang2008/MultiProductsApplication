@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Can_not_receive_the_verification_code">收不到验证码?</string>
+    <string name="Can_not_tv1">1、请核对手机号是否输入正确</string>
+    <string name="Can_not_tv2">2、检查手机是否安装了拦截软件</string>
+    <string name="Can_not_tv3">3、手机号欠费停机或被运营商列入黑名单</string>
+    <string name="Can_not_tv4">4、手机是否在境外使用</string>
+    <string name="Can_not_tv5">5、检查手机短信存储是否已满</string>
+    <string name="Can_not_tv6">6、如果网络延迟，可点击重新获取</string>
+    <string name="Can_not_tv7">7、均无以上情况，请联系客服协助处理</string>
+    <string name="Contact_customer_service">联系客服</string>
+    <string name="i_know">我知道了</string>
+
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+
+    <string name="confirm_bind">确认绑定</string>
+    <string name="you_are_setting">你正设置</string>
+    <string name="binding_ach_card">绑定自动清算卡</string>
+    <string name="binding_ach_card_content">为自动清算账户，请确认曾使用此账户进行过一次成功提现，一旦绑定无法更换，如需帮助请详询客服。</string>
+
+    <string name="take_a_photograph">拍照</string>
+    <string name="choose_from_album">从相册选择</string>
+    <string name="please_select_picture_source">请选择图片来源</string>
+
+    <string name="setting">设置</string>
+    <string name="try_again2">好,再试一下</string>
+    <string name="Not_monitoring_equipment">未检测到设备</string>
+    <string name="content_desc">可能是您关闭了麦克风或者蓝牙,请在设置中打开该功能,并检查设备电量及音频插口</string>
+
+    <string name="str_card_sms_verification">短信验证</string>
+    <string name="str_dialog_mesage">为了保障你的资金安全，请进行安全验证!</string>
+    <string name="please_enter_verification_code">请输入验证码</string>
+
+    <!-- 四要素二期 优化 -->
+    <string name="get_verification_code">获取验证码</string>
+    <string name="str_effective_time">短信有效时间</string>
+    <string name="str_reeffective_hint">请重新获取验证码</string>
+    <string name="str_fourele_maplocation">地图定位</string>
+    <string name="str_send_time">验证时间</string>
+    <string name="str_resend">重新发送</string>
+
+    <!-- 分享 -->
+    <string name="share_desc">赶紧把好东西分享给好友~</string>
+    <string name="share_weixin_friend">微信好友</string>
+    <string name="share_weixin_quan">朋友圈</string>
+    <string name="share_qq_friend">QQ好友</string>
+    <string name="share_qq_qqzone">QQ空间</string>
+
+    <string name="about_us">关于我们</string>
+
+    <!-- 签名 -->
+    <string name="Please_sign_here">请在此处签名</string>
+    <string name="Please_use_block_lettersss">请使用正楷,字迹端正可辨识,如签名与姓名不符,认证将不通过</string>
+    <string name="signature_notice">根据持卡人协议，本人同意通过{0}支付以上金额</string>
+    <string name="clear_signature">清除签名</string>
+    <string name="sign_an_agreement">签字同意</string>
+    <string name="sign_save_fail">签名保存失败！</string>
+    <string name="please_upload_all_pic">请全部上传所有图片！</string>
+    <string name="re_signature">重新签名</string>
+
+    <string name="can_not_receive_the_verification_code">收不到验证码?</string>
+
+    <string name="bluetooth_device_list">蓝牙设备列表</string>
+    <string name="bluetooth_searching">蓝牙设备搜索中……</string>
+    <string name="bluetooth_search_completed">蓝牙设备搜索完成</string>
+
+    <string name="please_enter_the_bank_card_password">请输入银行卡密码</string>
+    <string name="please_enter_the_bank_card_right_password">请输入正确的银行卡密码</string>
+    <string name="new_dialog_hint_str">好的，去拍照</string>
+
+    //分享
+    <string name="share_qq">QQ</string>
+    <string name="share_payment">赶紧通知好友收钱去~</string>
+
+    <string name="please_enter_the_correct_verification_code">请输入正确的验证码</string>
+    <string name="we_have_send_a_text_message_to_verification">我们已经给你的手机发送了一条验证短信。</string>
+    <string name="we_will_send_a_text_message_to_verification">我们将向您的手机发送一条短信，请注意查收。</string>
+    <string name="send_phone_verification_code">发送手机验证码</string>
+
+    <string name="sure">确定</string>
+    <string name="Please_enter_the_payment_password">请输入支付密码</string>
+    <string name="Please_enter_SMS_verification_code">请输入短信验证码</string>
+    <string name="resend_verification_code">重新发送验证码</string>
+    <string name="resend">重新发送</string>
+</resources>

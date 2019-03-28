@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#00000000"
+	android:gravity="center" >
+
+	<LinearLayout
+		android:id="@+id/rela_center"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="40dp"
+		android:layout_marginRight="40dp"
+		android:background="@drawable/dialog_bg_white"
+		android:orientation="vertical" >
+
+		<LinearLayout
+			android:id="@+id/title_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:padding="24dp"
+			android:orientation="vertical" >
+
+			<TextView
+				android:id="@+id/center_tv_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18dp"
+				android:text="@string/Not_monitoring_equipment"
+				android:textColor="@color/black" />
+
+			<TextView
+				android:textSize="16dp"
+				android:layout_marginTop="20dp"
+				android:id="@+id/center_tv_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/center_tv_title"
+				android:text="@string/content_desc"
+				/>
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/center_tv_line"
+			android:layout_width="match_parent"
+			android:layout_height="0.5dp"
+			android:layout_below="@+id/title_layout"
+			android:layout_marginTop="8dp"
+			android:background="@color/black"
+			android:visibility="gone" />
+
+		<TextView
+			android:id="@+id/center_tv_line2"
+			android:layout_width="0.5dp"
+			android:layout_height="35dp"
+			android:layout_below="@+id/center_tv_line"
+			android:layout_centerHorizontal="true"
+			android:background="@color/black"
+			android:visibility="gone" />
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="52dp"
+			android:gravity="right"
+			android:orientation="horizontal"
+			android:padding="8dp" >
+
+			<TextView
+				android:id="@+id/center_tv_setting"
+				android:layout_width="50dp"
+				android:layout_height="35dp"
+				android:layout_below="@+id/center_tv_line"
+				android:layout_toLeftOf="@+id/center_tv_line2"
+				android:gravity="center"
+				android:text="@string/setting"
+				android:textColor="@color/text_blue"
+				android:layout_marginRight="8dp"
+				android:textSize="14dp" />
+
+			<TextView
+				android:id="@+id/center_tv_try_again"
+				android:layout_width="100dp"
+				android:layout_height="35dp"
+				android:layout_below="@+id/center_tv_line"
+				android:layout_toRightOf="@+id/center_tv_line2"
+				android:gravity="center"
+				android:text="@string/try_again2"
+				android:textColor="@color/text_blue"
+				android:textSize="14dp" />
+		</LinearLayout>
+	</LinearLayout>
+
+</RelativeLayout>

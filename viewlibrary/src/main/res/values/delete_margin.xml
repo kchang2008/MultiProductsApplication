@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<dimen name="delete_left">5dp</dimen>
+<dimen name="delete_right">5dp</dimen>
+<dimen name="delete_top">10dp</dimen>
+<dimen name="delete_bottom">10dp</dimen>    
+</resources>

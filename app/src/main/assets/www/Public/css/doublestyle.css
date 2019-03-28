@@ -1,0 +1,191 @@
+/*公共部分*/
+html{
+    color:#3d4245;
+    font-size:14px;
+}
+p.halfline{
+    padding:0;
+    margin:0;
+}
+.scroll-bar{
+    display:none;
+}
+a{
+    text-decoration:none;
+}
+input{
+    display: block;
+    border:none;
+    color: #3d4245;
+    line-height:normal!important;
+    height:auto;
+    font-size:0.9rem!important;
+}
+input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=tel], input[type=color], textarea{
+    border:none;
+    color: #3d4245;
+    height:auto;
+    line-height:normal!important;
+    font-size:0.9rem!important;
+}
+.inputdiv input{
+    pointer-events: none;
+}
+select{
+    font-size:0.8rem;
+    color:#3d4245;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color:    #c7c7cd;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color:    #c7c7cd;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color:    #c7c7cd;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color:    #c7c7cd;
+}
+.borderline{
+    border-color:transparent;
+    border-image: url(../img/line.png) 2 2 round;
+    -webkit-border-image: url(../img/line.png) 2 2 round;
+}
+.pane,.view{
+    background-color:#f5f5f9;
+}
+.scroll-content{
+    background-color:#f5f5f9;
+}
+.item{
+    padding:0 1.2rem;
+    color:#3d4245;
+    border-color:transparent;
+    border-image: url(../img/line.png) 2 2 round;
+    -webkit-border-image: url(../img/line.png) 2 2 round;
+}
+.item input{
+    width:100%;
+}
+.item-select select{
+    max-width:50%;
+}
+.item-avatar-left{
+    padding-left:4em;
+}
+.paytypes span{
+    padding:0 1.2rem;
+    font-size:0.72rem;
+    display:block;
+    margin-top:0.8rem;
+    margin-bottom:1.2rem;
+    color:#c7c7cd;
+}
+.paytypes .row{
+    padding:0 1.2rem;
+    height:2.6rem;
+    line-height:2.6rem;
+    background-color:#ffffff;
+    border-top:1px solid transparent!important;
+    border-bottom:1px solid transparent!important;
+    border-image: url(../img/line.png) 2 2 round;
+    -webkit-border-image: url(../img/line.png) 2 2 round;
+}
+.paytypes .row label{
+    display:block;
+    font-size:0.8rem;
+    margin-left:1.8rem;
+    line-height:2.6rem;
+    color:#3d4245;
+}
+.paytypes .row .col{
+    padding-top:0;
+    padding-bottom:0;
+}
+.paytypes input[type="radio"]{
+    display:none;
+}
+.paytypes .row div{
+    background: url(../img/check_off.png) no-repeat left center;
+    background-size:1rem 1rem;
+}
+.paytypes .row div.check{
+    background: url(../img/check_on.png) no-repeat left center;
+    background-size:1rem 1rem;
+}
+/*下一步按钮*/
+.nextBtn{
+    padding:0 1.2rem;
+}
+.next{
+    width:100%;
+}
+.nextBtn span{
+    display:block;
+    margin-top:0.8rem;
+    margin-bottom:1.2rem;
+    color:#c7c7cd;
+    font-size:0.72rem;
+}
+.next a{
+    display:block;
+    background-color:#ebebf0;
+    color:#d2d2d2;
+    border-radius:0.1rem;
+    text-align:center;
+    line-height:2.6rem;
+}
+/*confirm*/
+.confirm{
+    display:none;
+}
+.popup-body span{
+    display:block;
+    text-align:center;
+}
+.popup-container .popup{
+    width:80%;
+    border-radius:0.6rem;
+    background-color:#f5f5f9;
+}
+.popup-buttons{
+    padding:0;
+    min-height:2.5rem;
+    height:3rem;
+    border-bottom-left-radius:0.6rem;
+    border-bottom-right-radius:0.6rem;
+}
+.popup-buttons button{
+    border-bottom: 0;
+    border-color:transparent;
+    border-image: url(../img/line.png) 2 2 round;
+    -webkit-border-image: url(../img/line.png) 2 2 round;
+    color:#3ca0ff;
+    font-size:1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color:#f5f5f9;
+}
+.popup-buttons button:nth-child(1){
+    border-bottom-left-radius:0.6rem;
+    border-right:0;
+    border-left:0;
+}
+.popup-buttons button:nth-child(2){
+    border-bottom-right-radius:0.6rem;
+    border-right:0;
+}
+.confirm .cancel{
+    width:50%;
+}
+.confirm .nocancel{
+    width:50%;
+}
+input[readonly]:not(.cloned-text-input){
+    background-color:#fff;
+}
+.overflow-scroll{
+    overflow-y:auto;
+}

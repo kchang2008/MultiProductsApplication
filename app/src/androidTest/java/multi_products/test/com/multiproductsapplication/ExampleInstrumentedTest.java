@@ -1,4 +1,4 @@
-package multi_products.test.com.multiproductsapplication;
+package com.multiproductsapplication;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("multi_products.test.com.multiproductsapplication", appContext.getPackageName());
+        assertEquals("com.multiproductsapplication", appContext.getPackageName());
     }
 }

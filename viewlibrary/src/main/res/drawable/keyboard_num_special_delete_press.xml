@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/keyboard_special_press"
+        />
+    <item android:drawable="@drawable/keyboard_abc_delete"
+        android:bottom="@dimen/delete_bottom"
+        android:top="@dimen/delete_top"
+        android:left="@dimen/delete_left"
+        android:right="@dimen/delete_right"/>
+
+</layer-list>

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html ng-app="ionic">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../Public/js/cordova.js"></script>
+    <script src="../Public/lib/ionic/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" href="../Public/lib/ionic/css/ionic.min.css">
+    <link rel="stylesheet" href="../Public/css/liMarquee.css">
+    <link rel="stylesheet" href="../Public/css/swiper.min.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
+    <script src="./js/init.js"></script>
+    <title></title>
+    <style>
+        .index1 {
+            top: 0;
+            overflow-y: auto;
+        }
+
+        .swiper-cnt {
+            height: 15rem;
+            overflow: hidden;
+        }
+
+        .bar {
+            border-bottom: none !important;
+        }
+
+        .scroll {
+            padding-top: 0;
+        }
+
+        li, span, p, div, ul {
+            line-height: 1;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .border {
+            border-style: solid;
+            -webkit-border-image: url(../Public/img/line.png) 2 2 repeat;
+            border-image: url(../Public/img/line.png) 2 2 repeat;
+        }
+
+        .loop-news {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0 1rem;
+            background-color: #fefcec;
+            z-index: 200;
+            visibility: hidden;
+        }
+
+        .loop-news-inner {
+            position: relative;
+            width: 100%;
+            height: 2.4rem;
+        }
+
+        .loop-news-cnt {
+            position: absolute;
+            top: 0;
+            left: 1.4rem;
+            width: 100%;
+            bottom: 0;
+            padding: 0 1rem;
+            height: 2.4rem !important;
+            background-color: #fefcec;
+            overflow: hidden;
+        }
+
+        .loop-news .loop-news-cnt span {
+            display: inline-block;
+            float: left;
+            height: 2.4rem;
+            line-height: 2.4rem;
+            color: #ff2645;
+            font-size: 0.9rem;
+            padding: 0 0.9rem;
+        }
+
+        .loop-news .loop-news-cnt .str_move span:last-child {
+            padding-right: 0;
+        }
+
+        .loop-news-announce {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 0.9rem;
+            margin-top: -0.45rem;
+        }
+
+        .loop-news-close {
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+            height: 0.7rem;
+            padding: 1rem;
+            margin-top: -1.35rem;
+            background-color: #fefcec;
+            opacity: 1;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+
+        .swiper-container {
+            background-color: #fff;
+            opacity: 1;
+            border-width: 0 0 1px !important;
+        }
+
+        .swiper-container-horizontal > .swiper-pagination-bullets,
+        .swiper-pagination-custom, .swiper-pagination-fraction {
+            bottom: 0.8rem;
+            height: 0.5rem;
+        }
+
+        .swiper-pagination-bullet {
+            height: 0.4rem;
+            width: 0.4rem;
+            background: #ccc;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #3ca0ff;
+        }
+
+        .swiper-container .swiper-slide img {
+            display: block;
+            height: 11.1rem;
+            padding: 2rem 0;
+            margin: 0 auto;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+
+        .special-award-list {
+            padding: 1rem 1.2rem;
+            display: none;
+        }
+
+        .special-award {
+            width: 100%;
+            background-color: #f5f5f9;
+            opacity: 1;
+        }
+
+        .special-award + .special-award {
+            margin-top: 1rem;
+        }
+
+        .special-award-inner {
+            position: relative;
+            width: 100%;
+            height: 4.6rem;
+            padding-left: 1.2rem;
+            background-color: #fff;
+            opacity: 1;
+            background-image: url(./img/gold_3.png);
+            background-position: right top;
+            background-size: 2.4rem auto;
+            background-repeat: no-repeat;
+            -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .1);
+            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .1);
+        }
+
+        .special-award-title {
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #3d4245;
+            font-weight: 500;
+        }
+
+        .special-award-price {
+            padding-top: 0.8rem;
+            color: #ff2645;
+        }
+
+        .special-award-price span:first-child {
+            font-size: 0.9rem;
+        }
+
+        .special-award-price span:nth-child(2) {
+            font-size: 1.1rem;
+            margin-left: 0.4rem;
+            font-weight: bold;
+        }
+
+        .special-award-price span:last-child {
+            margin-left: 1.1rem;
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+        .special-award-img {
+            display: block;
+            position: absolute;
+            top: 0.45rem;
+            right: 1.2rem;
+            height: 3.4rem;
+        }
+
+        .awards {
+            display: none;
+            background-color: #fff;
+            padding: 0.8rem 1rem 1.5rem;
+            border-width: 1px 0 0 !important;
+            margin-top: 0.4rem;
+        }
+
+        .awards-hot {
+            position: relative;
+            height: 7.8rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid #cdcdcd !important;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+        }
+
+        .awards-hot-list .tag, .awards-common-list ul li .tag {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 2.4rem;
+        }
+
+        .awards-hot-list .tag img, .awards-common-list ul li .tag img {
+            width: 100%;
+            display: block;
+        }
+
+        .awards-hot-header {
+            position: relative;
+            height: 2.24rem;
+            line-height: 2.24rem;
+        }
+
+        .awards-hot-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            border-top: 1px solid #cdcdcd !important;
+        }
+
+        .awards-hot-icon {
+            float: left;
+            height: 1.3rem;
+            margin: 0.45rem 0.3rem 0 1.1rem;
+        }
+
+        .awards-hot-p-1 {
+            float: left;
+            font-size: 0.72rem;
+            margin: 0.75rem 0.3rem 0 0;
+            color: #999;
+        }
+
+        .awards-hot-p-2 {
+            float: left;
+            margin: 0.55rem 0.3rem 0 0;
+        }
+
+        .awards-hot-p-2 span {
+            position: relative;
+            display: inline-block;
+            font-size: 0.6rem;
+            float: left;
+        }
+
+        .awards-hot-p-2 span:nth-child(2n) {
+            color: #3d4245;
+            font-size: 0.8rem;
+            padding: 0 2px;
+            margin-top: 0.1rem;
+        }
+
+        .awards-hot-p-2 span:nth-child(2n+1) {
+            padding: 0.25rem;
+            background-color: #3d4245;
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        .awards-hot-cnt {
+            box-sizing: border-box;
+            padding-left: 1.1rem;
+        }
+
+        .award-hot-title {
+            font-weight: 500;
+            padding-top: 0.72rem;
+            font-size: 0.8rem;
+            color: #3d4245;
+        }
+
+        .award-hot-price {
+            padding-top: 0.8rem;
+            color: #ff2645;
+            font-size: 0.9rem;
+        }
+
+        .award-hot-price span:nth-child(2) {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .award-hot-price span:last-child {
+            position: relative;
+            top: -0.15rem;
+            font-size: 0.7rem;
+            margin-left: 1.1rem;
+            margin-right: 0.4rem;
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+        .award-hot-progress {
+            position: relative;
+            width: 12.8rem;
+            height: 0.72rem;
+            margin-top: 0.72rem;
+            background-color: #ffd4da;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .award-hot-progress span:first-child {
+            display: block;
+            position: absolute;
+            top: 0.06rem;
+            left: 50%;
+            font-size: 0.6rem;
+            color: #fff;
+            z-index: 20;
+            width: 4rem;
+            text-align: center;
+            margin-left: -2rem;
+        }
+
+        .award-hot-progress span:last-child {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0.72rem;
+            background-color: #ff2645;
+            opacity: 1;
+            -webkit-transition: all 0.6s ease-in-out 0.1s;
+            transition: all 0.6s ease-in-out 0.1s;
+            z-index: 12;
+        }
+
+        .award-hot-progress span.unfilled {
+            border-radius: 1rem 0 0 1rem;
+        }
+
+        .award-hot-progress span.filled {
+            border-radius: 1rem;
+        }
+
+        .awards-hot-btn {
+            position: absolute;
+            width: 5rem;
+            right: 1.1rem;
+            bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .awards-hot-btn p {
+            font-size: 0.8rem;
+            color: #ff1e27;
+            margin-bottom: 0.25rem;
+        }
+
+        .awards-hot-btn div {
+            width: 5rem;
+            height: 1.8rem;
+            line-height: 1.8rem;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 1rem;
+            background-color: #ff2645;
+            background-image: -webkit-gradient(linear, left, right, from(#ffae00), to(#ff2645));
+            background-image: -webkit-linear-gradient(left, #ffae00, #ff2645);
+            background-image: linear-gradient(left, #ffae00, #ff2645);
+        }
+
+        .awards-common-list {
+            margin-top: 0.2rem;
+            display: block;
+        }
+
+        .awards-common-list ul {
+            overflow: hidden;
+        }
+
+        .awards-common-list ul li {
+            float: left;
+            width: 50%;
+            margin-bottom: 0.8rem;
+        }
+
+        .awards-common-list ul li > div {
+            text-align: center;
+            border: 1px solid #cdcdcd !important;
+            border-radius: 8px;
+        }
+
+        .awards-common-list ul li > div.discount {
+            position: relative;
+        }
+
+        .awards-common-list ul li:nth-child(2n) {
+            padding-left: 0.4rem;
+        }
+
+        .awards-common-list ul li:nth-child(2n+1) {
+            padding-right: 0.4rem;
+        }
+
+        .awards-common-list .discount-price {
+            font-size: 1.1rem;
+            color: #3d4245;
+        }
+
+        .awards-common-list .old-price {
+            position: relative;
+            top: -0.1rem;
+            font-size: 0.72rem;
+            color: #bbb;
+            margin-left: 0.3rem;
+            text-decoration: line-through;
+        }
+
+        .awards-common-list .price-desc {
+            padding-top: 0.9rem;
+        }
+
+        .awards-common-list .discount-desc {
+            padding: 0.72rem 0 0.8rem;
+            font-size: 0.9rem;
+            color: #3d4245;
+        }
+
+        .backdrop {
+            z-index: 13;
+        }
+    </style>
+</head>
+<body>
+<div class="loop-news">
+    <div class="loop-news-inner">
+        <img src="img/gold_prompt.png" class="loop-news-announce">
+
+        <div class="loop-news-cnt">
+            <!--<span>邱**成功抢到50万个金豆</span>
+            <span>邱**成功抢到50万个金豆</span>
+            <span>邱**成功抢到50万个金豆</span>
+            <span>邱**成功抢到50万个金豆</span>
+            <span>邱**成功抢到50万个金豆</span>
+            <span>邱**成功抢到50万个金豆</span>-->
+        </div>
+        <img src="img/gold_close.png" class="loop-news-close">
+    </div>
+</div>
+<section class="loadingnow" style="display: block;">
+    <div class="backdrop visible backdrop-loading active"></div>
+    <div class="loading-container visible active">
+        <div class="loading">
+            <span><ion-spinner icon="ios"></ion-spinner></span>
+        </div>
+    </div>
+</section>
+<ion-content class="index1" has-bouncing="true">
+    <div class="swiper-cnt">
+        <div class="swiper-container border">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/gold_banner1.png"></div>
+                <div class="swiper-slide"><img src="img/gold_banner2.png"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="special-award-list">
+        <!--<div class="special-award" data-price="{}">
+            <div class="special-award-inner">
+                <p class="special-award-title"></p>
+
+                <p class="special-award-price"><span>新手价:</span><span class="new-price"></span><span>元</span><span
+                        class="origin-price"></span></p>
+                <img src="img/gold_4.png" class="special-award-img">
+            </div>
+        </div>
+        <div class="special-award" data-price="{}">
+            <div class="special-award-inner">
+                <p class="special-award-title"></p>
+
+                <p class="special-award-price"><span>新手价:</span><span class="new-price"></span><span>元</span><span
+                        class="origin-price"></span></p>
+                <img src="img/gold_4.png" class="special-award-img">
+            </div>
+        </div>-->
+    </div>
+    <div class="awards border">
+        <div class="awards-hot-list">
+            <!--<div class="awards-hot">
+                <div class="awards-hot-header">
+                    <img src="img/gold_1.png" class="awards-hot-icon">
+
+                    <p class="awards-hot-p-1">距结束仅剩</p>
+
+                    <p class="awards-hot-p-2">
+                        <span>05</span>
+                        <span>:</span>
+                        <span>00</span>
+                        <span>:</span>
+                        <span>00</span>
+                        <span style="clear: both;width: 1px;height: 1px;"></span>
+                    </p>
+                </div>
+                <div class="awards-hot-cnt">
+                    <p class="award-hot-title">50万个金豆／抵5000元手续费</p>
+
+                    <p class="award-hot-price"><span>新手价:</span><span>4800</span><span>元</span><span>4950元</span></p>
+
+                    <p class="award-hot-progress"><span>60%</span><span class="unfilled"></span></p>
+                </div>
+                <div class="awards-hot-btn">
+                    <p>仅剩500万</p>
+                    <div>立即抢</div>
+                </div>
+                <div class="tag"><img src="img/gold_2.png"></div>
+            </div>-->
+        </div>
+        <div class="awards-common-list">
+            <ul>
+                <!--<li class="promotion" data-price="9800">
+                    <div class="discount">
+                        <p class="price-desc"><span class="discount-price">968元</span><span
+                                class="old-price">990元</span></p>
+
+                        <p class="discount-desc">10万个／抵扣1000元</p>
+                        <label class="tag"><img src="img/gold_9.png"></label>
+                    </div>
+
+                </li>
+                <li class="promotion" data-price="9800">
+                    <div class="discount">
+                        <p class="price-desc"><span class="discount-price">968元</span><span
+                                class="old-price">990元</span></p>
+
+                        <p class="discount-desc">10万个／抵扣1000元</p>
+                    </div>
+                </li>
+                <li class="promotion" data-price="9800">
+                    <div class="border">
+                        <p class="price-desc"><span class="discount-price">968元</span><span
+                                class="old-price">990元</span></p>
+
+                        <p class="discount-desc">10万个／抵扣1000元</p>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</ion-content>
+<script src="../Public/js/jquery-1.11.3.min.js"></script>
+<script src="../Public/js/jquery.mobile.custom.min.js"></script>
+<script src="../Public/js/swiper.jquery.min.js"></script>
+<script src="../Public/js/jquery.liMarquee.min.js"></script>
+<script src="../Public/js/jquery.xml2json.js"></script>
+<script src="../Public/js/common.js"></script>
+<script src="../Public/js/number-handle.js"></script>
+<script src="../Public/js/string-handle.js"></script>
+<script src="../Public/js/addmediacss.js"></script>
+<script src="./js/config.js"></script>
+<script>
+    var customerId;
+    var pageParam = {
+        goldBalance: 0,
+        goldList: [],
+        winList: []
+    };
+    $(function () {
+        if("1" == userWhiteMsg.ifShareWareFlag){
+            var swiperCnt = $(".swiper-wrapper");
+            swiperCnt.append('<div class="swiper-slide suprise-bner"><img src="img/gold_banner3.png"></div>');
+        }
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            spaceBetween: 0,
+            centeredSlides: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction: false,
+            loop: true
+        });
+    });
+    document.addEventListener('deviceready', function () {
+        customerId = userBaseMsg.customerId;
+        /*获取中奖列表*/
+        navigator.myPlugin.doNetworkActionWithoutLoadingFunc(
+                [{
+                    "application": "GetSalesPromotioList.Req",
+                    "dataRequestType": "JSON"
+                }],
+                setSuccess, setError);
+        /*setTimeout(function () {
+         setProgress(80);
+         }, 200);*/
+    }, false);
+    /*专享劲爆套餐点击购买*/
+    $(".special-award-list,.awards-hot-list").on("tap", ".special-award,.awards-hot", function () {
+        var _this = $(this);
+        goBuy(_this.data("price"));
+    });
+    /*普通套餐点击购买*/
+    $(".awards-common-list ul").on("tap", "li", function () {
+        var _this = $(this);
+        goBuy(_this.data("price"));
+    });
+    /*购买商品
+     * mktProductPrice -> 商品价格
+     * mktProductNumber -> 金豆数量
+     * mktProductId -> 金豆编号
+     * salesMessage	0:可以购买；
+     1：促销时间已过，再试试别的吧
+     2：购买次数已满，再试试别的吧
+     3：金豆售完，再试试别的吧*/
+    function goBuy(obj) {
+        var tempgood = _COMMON.jsonP(obj);
+        if (tempgood.salesMessage == "0") {
+            f("gold" + tempgood.mktProductId, tempgood.mktProductNumber + "个金豆");
+            commit(tempgood);
+        } else {
+            getDesc(tempgood.salesMessage);
+        }
+    }
+    /*提示*/
+    function getDesc(level) {
+        level = level.toString();
+        var awardDesc;
+        switch (level) {
+            case "1"://8.8
+                awardDesc = {
+                    "desc1": "亲 , 促销时间已过，再试试别的 !",
+                    "desc2": "请再试试别的吧 !"
+                };
+                break;
+            case "2"://1.8
+                awardDesc = {
+                    "desc1": "亲，购买次数已满，再试试别的 !",
+                    "desc2": "不要太贪心哦 !"
+                };
+                break;
+            case "3"://0.88
+                awardDesc = {
+                    "desc1": "亲，金豆已售完，再试试别的 !",
+                    "desc2": "再试试别的吧 !"
+                };
+                break;
+            default:
+                awardDesc = {
+                    "desc1": "亲，购买次数已满，再试试别的 !",
+                    "desc2": "不要太贪心哦 !"
+                };
+                break;
+        }
+        navigator.myPlugin.showAlertFunc([{"alertInfo": awardDesc.desc1, "position": "center"}]);
+    }
+    /*成功回调*/
+    function setSuccess(entry) {
+        var allmsg = _COMMON.toJson(entry);
+        if (allmsg.application == "GetMktProductList.Rsp") {//商品列表
+            if (allmsg.respCode == "0000") {
+                $(".awards").css("display", "block");
+                /*
+                 * mktProductName -> 商品名称
+                 * mktProductPrice -> 商品价格
+                 * isSalesPromotio -> 商品价格1：售价2：促销价
+                 * mktProductNumber -> 金豆数量
+                 * mktProductId -> 金豆编号
+                 * salesMessage -> 金豆购买提示0:可以购买； 1：促销时间已过，再试试别的吧 2：购买次数已满，再试试别的吧3：金豆子售完，再试试别的吧
+                 * mktProductDesc ->商品描述 50万个金豆/抵扣5000元手续费
+                 * discountPrice ->优惠价 4800
+                 * subProductTypeId -> 套餐类型id  P01 专享，P02 劲爆，P03 优惠，P04 常规
+                 * endTime -> 活动剩余时间 800(秒)
+                 * zxNumber -> 用户参加专享活动情况 数据类别: 0 未登入,1 未购买,2 已购买,3 其他，null 该用户不是新用户
+                 * planSaleNumber -> 计划销售金豆数量
+                 * factSaleNumber -> 实际销售金豆数量
+                 */
+                pageParam.goldList = allmsg.data.resultList || [];
+                var templen = pageParam.goldList.length;
+                var zxGoldList = $.grep(pageParam.goldList, function (n) {//P01专享
+                    return n.subProductTypeId == "P01" && n.salesMessage == "0";
+                }, false);
+                var jbGoldList = $.grep(pageParam.goldList, function (n) {//P02劲爆
+                    return n.subProductTypeId == "P02" && n.salesMessage == "0";
+                }, false);
+                var yhGoldList = $.grep(pageParam.goldList, function (n) {//P03优惠
+                    return n.subProductTypeId == "P03";
+                }, false);
+                var commonGoldList = $.grep(pageParam.goldList, function (n) {//P04常规
+                    return n.subProductTypeId == "P04";
+                }, false);
+                var jhGoldList = $.grep(pageParam.goldList, function (n) {//P05钜惠
+                    return n.subProductTypeId == "P05" && n.salesMessage == "0";
+                }, false);
+                if (zxGoldList.length > 0 || jhGoldList.length > 0) {
+                    var specialCnt = $(".special-award-list");
+                    specialCnt.css("display", "block");
+                    var tempZXHtml = "";
+                    if (zxGoldList.length > 0) {
+                        tempZXHtml += getZXItemHtml(zxGoldList[0],"新手价");
+                    }
+                    for (var jhIdx = 0; jhIdx < jhGoldList.length; jhIdx++) {
+                        tempZXHtml += getZXItemHtml(jhGoldList[jhIdx],"专享价");
+                    }
+                    specialCnt.html(tempZXHtml);
+                    if(customerId != localStorage.getItem("zxOldId")){
+                        localStorage.removeItem("hasAlertStr");
+                        localStorage.removeItem("zxOldId");
+                        localStorage.removeItem("zxAlertList");
+                    }
+                    var hasAlertStr = localStorage.getItem("hasAlertStr") || "";//已经弹窗过
+                    var currentList = zxGoldList.concat(jhGoldList);//当前专享和钜惠的商品列表
+                    var needAlertList = [];//需要弹窗的数据
+                    currentList.forEach(function(curVal,Idx,arr){
+                        if(curVal.mktProductId && hasAlertStr.indexOf(curVal.mktProductId) == -1){//没有弹过
+                            needAlertList.push(curVal);
+                        }
+                    });
+                    if(needAlertList.length > 0){
+                        var tid = setInterval(function () {
+                            if (localStorage.getItem("payZX") == "1") {
+                                localStorage.removeItem("payZX");
+                                clearInterval(tid);
+                                var tempgood = _COMMON.jsonP(localStorage.getItem("thisPayObj"));
+                                f("gold" + tempgood.mktProductId, "弹窗立即购买");
+                                commit(tempgood);
+                            }
+                        }, 500);
+                        localStorage.setItem("zxAlertList", JSON.stringify(needAlertList));
+                        localStorage.setItem("zxOldId", customerId);
+                        navigator.myPlugin.showCanJumpGuideWebViewFunc([{
+                            "floderName": globalName,
+                            "pageName": "gold-cover.html",
+                            "opacity": "0.65"
+                        }], null, null);
+                    }
+                    function getZXItemHtml(obj,desc) {
+                        return '<div class="special-award" data-price=' + JSON.stringify(obj) + '>'
+                                + '<div class="special-award-inner">'
+                                + '<p class="special-award-title">' + obj.mktProductDesc + '</p>'
+                                + '<p class="special-award-price"><span>'+desc+':</span><span class="new-price">' + obj.discountPrice + '</span><span>元</span><span class="origin-price">' + obj.mktProductPrice + '元</span></p>'
+                                + '<img src="img/gold_4.png" class="special-award-img">'
+                                + '</div>'
+                                + '</div>';
+
+                    }
+                }
+                if (jbGoldList.length > 0) {
+                    var tempJBHtml = "";
+                    for (var jbIdx = 0; jbIdx < jbGoldList.length; jbIdx++) {
+                        var thisGood = jbGoldList[jbIdx];
+                        var temptime = formatSeconds(thisGood.endTime);
+                        var tempnum = Number(thisGood.mktProductNumber);
+                        var lastnum = numHandle.aSub(thisGood.planSaleNumber, thisGood.factSaleNumber);
+                        var lastGoodsNum = Math.floor(numHandle.aDiv(lastnum, thisGood.mktProductNumber)).toString();
+                        if (Math.floor(numHandle.aDiv(lastnum, 10000)) > 0) {
+                            lastnum = numHandle.aDiv(lastnum, 10000) + "万";
+                        }
+                        var pecent = numHandle.aMul(numHandle.aDiv(thisGood.factSaleNumber, thisGood.planSaleNumber), 100);
+                        if (pecent < 100) {
+                            tempJBHtml += '<div class="awards-hot" data-price=' + JSON.stringify(thisGood) + '><div class="awards-hot-header"><img src="img/gold_1.png" class="awards-hot-icon"> <p class="awards-hot-p-1">距结束仅剩</p>' +
+                                    '<p class="awards-hot-p-2" data-ss=' + thisGood.endTime + '><span>' + temptime.hh + '</span><span>:</span><span>' + temptime.mm + '</span><span>:</span><span>' + temptime.ss + '</span><span style="clear: both;width: 1px;height: 1px;"></span></p></div><div class="awards-hot-cnt">' +
+                                    '<p class="award-hot-title">' + thisGood.mktProductDesc + '</p>' +
+                                    '<p class="award-hot-price"><span>优惠价: </span><span>' + thisGood.discountPrice + '</span><span>元</span><span>' + thisGood.mktProductPrice + '元</span></p>' +
+                                    '<p class="award-hot-progress"><span>' + Math.floor(pecent) + '%</span><span class="unfilled" style="width: ' + Math.floor(pecent) + '%;"></span></p>' +
+                                    '</div><div class="awards-hot-btn"><p>仅剩' + lastGoodsNum + '件</p><div>立即抢</div></div><div class="tag"><img src="img/gold_2.png"></div></div>';
+                        }
+
+                    }
+                    $(".awards-hot-list").html(tempJBHtml);
+                    var setinterval = setInterval(function () {
+                        $(".awards-hot-p-2").each(function () {
+                            var tempnum = Number($(this).data("ss"));
+                            if (tempnum > 0) {
+                                $(this).data("ss", tempnum - 1);
+                                var temptime = formatSeconds(tempnum - 1);
+                                /*alert(JSON.stringify(temptime))*/
+                                $(this).html('<span>' + temptime.hh + '</span><span>:</span><span>' + temptime.mm + '</span><span>:</span><span>' + temptime.ss + '</span><span style="clear: both;width: 1px;height: 1px;"></span>');
+                            } else {
+                                $(this).parent().parent().remove();
+                                if (!($(".awards-hot-p-2").length > 0)) {
+                                    clearInterval(setinterval);
+                                }
+                            }
+                        });
+                    }, 1000)
+                }
+                var templi = "";
+                if (yhGoldList.length > 0) {
+                    for (var yhIdx = 0; yhIdx < yhGoldList.length; yhIdx++) {
+                        var thisGood = yhGoldList[yhIdx];
+                        templi += '<li data-price=' + JSON.stringify(thisGood) + '><div class="discount"><p class="price-desc"><span class="discount-price">' + thisGood.discountPrice + '元</span><span class="old-price">' + thisGood.mktProductPrice + '元</span></p><p class="discount-desc">' + thisGood.mktProductDesc + '</p><label class="tag"><img src="img/gold_9.png"></label></div></li>';
+                    }
+                }
+                if (commonGoldList.length > 0) {
+                    for (var cIdx = 0; cIdx < commonGoldList.length; cIdx++) {
+                        var thisGood = commonGoldList[cIdx];
+                        templi += '<li data-price=' + JSON.stringify(thisGood) + '><div><p class="price-desc"><span class="discount-price">' + thisGood.mktProductPrice + '元</span></p><p class="discount-desc">' + thisGood.mktProductDesc + '</p></div></li>';
+                    }
+                    templi += '<div class="clearfix" style="clear: both;height: 1px;"></div>';
+                }
+                $(".awards-common-list ul").html(templi);
+            }
+            f("goldEnter", "进入金豆商城");
+            loadingHide();
+        } else if (allmsg.application == "GetSalesPromotioList.Rsp") {//中奖列表
+            if (allmsg.respCode == "0000") {
+                pageParam.winList = allmsg.data.resultList || [];
+                var winLen = pageParam.winList.length;
+                if (winLen > 0) {
+                    var temphtml = "";
+                    for (var j = 0; j < winLen; j++) {
+                        var tempdata = "", tempWinVal, tempWinUnit;
+                        var thisWin = pageParam.winList[j];
+                        tempdata += strHandle.strEncode(thisWin.userName, 1, 0, thisWin.userName.length - 1);
+                        tempdata += " 成功抢到" + formatWan(Number(thisWin.mktProductNumber)) + "金豆";
+                        temphtml += "<span>" + tempdata + "</span>";
+                    }
+                    createMarquee(temphtml);
+                }
+            }
+            /*获取可购买的金豆列表*/
+            navigator.myPlugin.doNetworkActionWithoutLoadingFunc(
+                    [{
+                        "application": "GetMktProductList.Req",
+                        "dataRequestType": "JSON",
+                        "cumtomerId": customerId
+                    }],
+                    setSuccess, setError);
+        }
+    }
+    function formatWan(num) {
+        var tempVal, tempUnit;
+        if (Math.floor(numHandle.aDiv(num, 10000)) > 0) {
+            tempVal = numHandle.aDiv(num, 10000);
+            tempUnit = "万个";
+        } else {
+            tempVal = num;
+            tempUnit = "个";
+        }
+        return tempVal + tempUnit;
+    }
+    function setError() {
+
+    }
+    function setProgress(p) {
+        $(".award-hot-progress")
+                .find("span:first-child").html(p + "%")
+                .end()
+                .find("span:last-child").css({
+            width: p + "%"
+        })[p == 100 ? "addClass" : "removeClass"]("filled")[p == 100 ? "removeClass" : "addClass"]("unfilled");
+    }
+
+    function createMarquee(htmlStr) {
+        $(".loop-news .loop-news-cnt").append(htmlStr);
+        var w = 0;
+        $(".loop-news .loop-news-cnt span").each(function (i, v) {
+            w += $(this).outerWidth();
+        });
+        $("head").append('<style>.loop-news .loop-news-cnt, .str_move { width: ' + (w + 5) + 'px !important; }</style>');
+        $(".loop-news").css("visibility", "visible").find(".loop-news-cnt").liMarquee({
+            direction: 'left', //滚动方向，可选 left / right / up / down
+            loop: -1, //循环次数，-1 为无限循环
+            scrolldelay: 0, //每次重复之前的延迟
+            scrollamount: 50, //滚动速度，越大越快
+            circular: true, //无缝滚动，如果为 false，则和 marquee 效果一样
+            drag: false, //鼠标可拖动
+            runshort: true, //内容不足是否滚动
+            hoverstop: false, //鼠标悬停暂停
+            inverthover: false
+        }).end().find(".loop-news-close").on("tap", function () {
+            $(".loop-news").hide(function () {
+                $(".loop-news .loop-news-cnt").liMarquee('destroy');
+            });
+        });
+    }
+
+    //处理友盟埋点
+    function f(k, name) {
+        navigator.myPlugin.doNetworkActionWithoutLoadingFunc(
+                [{
+                    "application": "CreditCardApplyFor.Req",
+                    "cumtomerId": customerId,
+                    "bankName": name,
+                    "clickStatus": k
+                }],
+                null, null);
+    }
+    function loadingHide() {
+        $(".loadingnow").css("display", "none");
+        $(".page").css("overflow-y", "auto")
+    }
+    /*提交填写信息*/
+    function commit(data) {
+        var tempobj = data;
+        /* mktProductPrice -> 商品价格
+         * mktProductNumber -> 金豆数量
+         * mktProductId -> 金豆编号*/
+        var mode;
+        var goldNum = tempobj.mktProductNumber || "10000";
+        var goldId = tempobj.mktProductId || "1";
+        var goldPrice = tempobj.mktProductPrice || "99.50";
+        var discountList = "P01,P02,P03,P05";
+        if (discountList.indexOf(tempobj.subProductTypeId) != -1) {
+            goldPrice = tempobj.discountPrice;
+        }
+        all = {};
+        all.ordertype = "充值-支付金额";
+        all.merchantId = "0002000059";
+        all.productId = "0000000000";
+        all.isPrint = true;
+        all.orderRemark = goldId + "|" + goldNum;
+        all.orderAmt = "￥" + parseFloat(goldPrice).toFixed(2);
+        all.orderDesc = localStorage.getItem("mobileNo");
+        all.paytype = "1";
+        if (all.paytype == "2") {
+            mode = "账户余额支付";
+        } else {
+            mode = "刷卡支付";
+        }
+        all.ctrlType = 1;//0和不传保持默认;1:取descAmt值
+        all.descAmt = [{"id": 1, "name": "获得", "value": goldNum + "个金豆"}, {"id": 2, "name": "", "value": ""}];
+        all.orderData = [{"id": 1, "name": "交易类型", "value": "金豆购买"}, {
+            "id": 2,
+            "name": "入账账户",
+            "value": strHandle.strEncode(localStorage.getItem("mobileNo"), 3, 4, 4)
+        }, {"id": 3, "name": "支付方式", "value": mode}];
+        result = eval("[" + JSON.stringify(all) + "]");
+        navigator.myPlugin.createOrderSceneFunc(result, null, null);
+    }
+    /*秒转换为时分秒*/
+    function formatSeconds(value) {
+        var theTime = parseInt(value);// 秒
+        var hour = 0;
+        var minute = 0;
+        var second = 0;
+        if (theTime <= 0)
+            timeStr = "00:00:00";
+        else {
+            minute = Math.floor(theTime / 60);
+            if (minute < 60) {
+                second = theTime % 60;
+                timeStr = unitFormat(minute) + ":" + unitFormat(second);
+            } else {
+                hour = Math.floor(minute / 60);
+                minute = minute % 60;
+                second = theTime - hour * 3600 - minute * 60;
+                timeStr = unitFormat(hour) + ":" + unitFormat(minute) + ":" + unitFormat(second);
+            }
+        }
+        return {"hh": unitFormat(hour), "mm": unitFormat(minute), "ss": unitFormat(second)};
+    }
+    /*时间位数格式化,不是两位前面补0*/
+    function unitFormat(data) {
+        var retStr = null;
+        if (data >= 0 && data < 10) {
+            retStr = "0" + data.toString();
+        } else {
+            retStr = "" + data.toString();
+        }
+        return retStr;
+    }
+    /*去推荐有礼*/
+    function goSuprise(){
+        var all = {};
+        all.pathfloder = "Surprise";
+        all.startpage = "index.html";
+        all.downloadurl = "https://www.imobpay.com/V380/Surprise.zip";
+        all.titlebarColor = "#f7f7f7";
+        all.titleName = "推荐有礼";
+        result = _COMMON.dataMerge(all);
+        navigator.myPlugin.homepageEnterFunc(result, null, null);
+    }
+</script>
+</body>
+</html>

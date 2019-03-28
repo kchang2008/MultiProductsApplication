@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/finger_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/login_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1" >
+
+        <FrameLayout
+            android:id="@+id/finger_view"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/white" >
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/finger_tv_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Please_sign_here"
+            android:textColor="#c7c7cd"
+            android:textSize="24dp" />
+    </RelativeLayout>
+    <!-- 添加新的代码 -->
+
+    <TextView
+        android:id="@+id/finger_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/login_line" />
+
+    <TextView
+        android:id="@+id/finger_tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="@string/Please_use_block_lettersss"
+        android:textColor="@color/red"
+        android:textSize="12dp" />
+
+    <!-- 添加新的代码 -->
+
+
+    <!-- 把原来的Visible 设置为 gone -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <include layout="@layout/dialog_line_horizontal_1dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_shuoming"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="left|center_vertical"
+            android:text="@string/signature_notice" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="right|center_vertical"
+            android:text="2014-04-30 11:44:00" />
+    </LinearLayout>
+    <!-- 把原来的Visible 设置为 gone -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="2dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical|left" >
+
+            <TextView
+                android:id="@+id/tv_clear"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#c7c7cd"
+                android:gravity="center"
+                android:text="@string/clear_signature"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="2dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="5"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/text_blue"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

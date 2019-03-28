@@ -1,34 +1,25 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    //buildToolsVersion '27.0.3'
     useLibrary 'org.apache.http.legacy'
-
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 27
     }
-
     //publishNonDefault true
-
-    //产品或者说渠道配置
     productFlavors {
-        ProductA {
-            versionCode 1
-            versionName "1.0"
 
+
+        ProductA {
             flavorDimensions "versionCode"
         }
 
         ProductB {
-            versionCode 12
-            versionName "3.0"
-
             flavorDimensions "versionCode"
         }
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -50,13 +41,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    buildToolsVersion '28.0.3'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api project(':viewslibrary')
 }
